@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('main_image');
             $table->text('body');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->unsignedBigInteger('author_id');
             $table->foreign('author_id')->references('id')->on('users');
             $table->enum('post_status', ['draft', 'publish']);
