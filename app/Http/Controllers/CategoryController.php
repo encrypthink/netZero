@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -18,23 +19,47 @@ class CategoryController extends Controller
         return view('module.category.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        # code...
+        $validate = $request->validate([
+            'category_name' => 'required|min:5|max:15'
+        ]);
+
+        $category = Category::create([
+            'name' => $request->category_name,
+            'slug' => Str::of($request->category_name)->slug('-'),
+            'description' => $request->description
+        ]);
+
+        if ($category) {
+            return redirect()->route('category.index')->with('success', 'Success create new category.');
+        }
     }
 
     public function edit($id)
     {
-        # code...
+        $category = Category::findOrFail($id);
+        return view('module.category.edit', ['category' => $category]);
     }
 
     public function update(Request $request, $id)
     {
-        # code...
+        $validate = $request->validate([
+            'category_name' => 'required|min:5|max:15'
+        ]);
+
+        $category = Category::findOrFail($id);
+        $category->name = $request->category_name;
+        $category->description = $request->description;
+        $category->save();
+
+        return redirect()->route('category.index')->with('success', 'Success update category.');
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
-        # code...
+        $category = Category::findOrFail($id);
+        $category->delete();
+        return redirect()->route('category.index')->with('success', 'Success delete category.');
     }
 }
