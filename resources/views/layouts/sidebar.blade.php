@@ -9,7 +9,7 @@
         </div>
     </li>
     <li>
-        <a href="#"
+        <a href="{{ route('dashboard') }}"
             class="relative flex flex-row items-center h-11 focus:outline-none hover:mx-4 hover:rounded-md hover:bg-yellow-400 hover:fill-amber-900 hover:text-amber-900 fill-gray-600 hover:font-semibold text-gray-600 border-l-4 border-transparent pr-6">
             <span class="inline-flex justify-center items-center ml-4">
                 <svg width="18px" height="18px" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
@@ -21,7 +21,7 @@
         </a>
     </li>
     <li>
-        <a href="#"
+        <a href="{{ route('post.index') }}"
             class="relative flex flex-row items-center h-11 focus:outline-none hover:mx-4 hover:rounded-md hover:bg-yellow-400 hover:fill-amber-900 hover:text-amber-900 fill-gray-600 hover:font-semibold text-gray-600 border-l-4 border-transparent pr-6">
             <span class="inline-flex justify-center items-center ml-4">
                 <svg width="18px" height="18px" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
@@ -62,7 +62,7 @@
         </div>
     </li>
     <li>
-        <a href="#"
+        <a href="{{ route('setting.index') }}"
             class="relative flex flex-row items-center h-11 focus:outline-none hover:mx-4 hover:rounded-md hover:bg-yellow-400 hover:fill-amber-900 hover:text-amber-900 fill-gray-600 hover:font-semibold text-gray-600 border-l-4 border-transparent pr-6">
             <span class="inline-flex justify-center items-center ml-4">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Identity extends Model
 {
-    protected $table = "identity";
+    protected $table = "website_identity";
     protected $fillable = [
         "name",
         "description",
