@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::resource('/post', PostController::class);
     Route::resource('/category', CategoryController::class);
     Route::resource('/setting', SettingController::class);
+
+    Route::post('/post/upload/image', [PostController::class, 'imageUpload']);
 });
 
 require __DIR__.'/auth.php';

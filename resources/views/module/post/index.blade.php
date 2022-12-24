@@ -12,8 +12,47 @@
         @endif
         <div class="mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-md sm:rounded-lg p-7">
+               <div class="grid grid-cols-2 mb-4">
                 <div class="mb-7">
                     <h1 class="text-slate-900 font-extrabold text-4xl sm:text-xl lg:text-4xl dark:text-white">Post</h1>
+                </div>
+                <div>
+                    <div class="flex justify-end">
+                        <a href="{{ route('post.create') }}" class="py-2 px-3 text-amber-900 font-bold rounded-md bg-yellow-400">New Post</a>
+                    </div>
+                </div>
+               </div>
+                <div class="w-full bg-slate-100 rounded-md">
+                    <table class="w-full whitespace-nowrap">
+                        <thead class="font-bold border-b-2 border-yellow-400">
+                            <tr>
+                                <td class="px-5 py-3">Title</td>
+                                <td class="px-5 py-3">Author</td>
+                                <td class="px-5 py-3">Thumbnail</td>
+                                <td class="px-5 py-3">Date Created</td>
+                                <td class="px-5 py-3">Action</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (count($post) < 1)
+                                <tr>
+                                    <td colspan="5" class="p-3 text-center text-slate-500">Not yet record</td>
+                                </tr>
+                            @endif
+                            @foreach ($post as $item)
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    <div class="p-2">
+                        {{ $post->links() }}
+                    </div>
                 </div>
             </div>
         </div>
