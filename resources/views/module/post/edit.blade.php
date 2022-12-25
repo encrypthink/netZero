@@ -11,12 +11,13 @@
             </div>
         </div>
         @endif
-        <form action="{{ route('post.store') }}" method="post" enctype="multipart/form-data" x-data="{imageName: null, imagePreview: null}">
+        <form action="{{ route('post.update', $post->id) }}" method="post" enctype="multipart/form-data" x-data="{imageName: null, imagePreview: null}">
+            @method('PATCH')
             @csrf
             <div class="mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-md sm:rounded-lg p-7">
                     <div class="mb-7">
-                        <h1 class="text-slate-900 font-extrabold text-4xl sm:text-xl lg:text-4xl">New Post</h1>
+                        <h1 class="text-slate-900 font-extrabold text-4xl sm:text-xl lg:text-4xl">Edit Post</h1>
                     </div>
                     
                     <div class="flex gap-4">
@@ -24,12 +25,12 @@
                             <div class="bg-gray-100 p-5 rounded-md shadow-sm">
                                 <div class="col-span-6 sm:col-span-3 mb-4">
                                     <label for="title" class="block text-sm font-medium text-gray-700">Post Title</label>
-                                    <input type="text" name="title" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                                    <input type="text" name="title" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="{{ $post->title }}">
                                     @error('title')
                                     <p class="text-red-400 text-xs italic my-2">{{ $message }}</p>
                                     @enderror
                                 </div>
-                                <x-forms.tinymce-editor/>
+                                <x-forms.tinymce-editor value="{!! $post->body !!}"/>
                                 @error('body')
                                 <p class="text-red-400 text-xs italic">{{ $message }}</p>
                                 @enderror
@@ -52,7 +53,7 @@
                                 </div>
     
                                 <div class="flex justify-center mt-3" x-show="! imagePreview">
-                                    <img class="text-center" src="{{ asset('images/placeholder.svg') }}"
+                                    <img class="text-center" src="{{ asset('post_images/thumbnail/'.$post->main_image) }}"
                                         alt="preview image" style="max-height: 85px;" class="mt-2">
                                 </div>
                                 <div class="flex justify-center mt-3" x-show="imagePreview">
@@ -89,6 +90,12 @@
                                 <div class="col-span-6 sm:col-span-3 mb-4 pb-3 border-b-2 border-gray-200">
                                     <p class="font-bold">Category</p>
                                 </div>
+                                @php
+                                    $selectedCategory = [];
+                                    foreach ($post->category as $key) {
+                                        array_push($selectedCategory, $key->category_id);
+                                    }
+                                @endphp
                                 <div class="h-48">
                                     @if (count($category) < 1)
                                     <p class="text-center">No categories yet</p>
@@ -96,7 +103,7 @@
                                     @foreach ($category as $item)
                                     <div class="form-check">
                                         <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" 
-                                            name="category[]" value="{{ $item->id }}" type="checkbox" value="" id="flexCheckDefault">
+                                            type="checkbox" name="category[]" value="{{ $item->id }}" id="flexCheckDefault" @checked (in_array($item->id, $selectedCategory))>
                                         <label class="form-check-label inline-block text-gray-800" for="flexCheckDefault">
                                           {{ $item->name }}
                                         </label>

@@ -14,10 +14,12 @@
             <div class="bg-white overflow-hidden shadow-md sm:rounded-lg p-7">
                 <div class="grid grid-cols-2 mb-4">
                     <div class="mb-7">
-                        <h1 class="text-slate-900 font-extrabold text-4xl sm:text-xl lg:text-4xl dark:text-white">Category</h1>
+                        <h1 class="text-slate-900 font-extrabold text-4xl sm:text-xl lg:text-4xl">Category</h1>
                     </div>
-                    <div class="flex justify-end">
-                        <a href="{{ route('category.create') }}" class="py-2 px-3 text-amber-900 font-bold rounded-md bg-yellow-400">New Category</a>
+                    <div>
+                        <div class="flex justify-end">
+                            <a href="{{ route('category.create') }}" class="py-2 px-3 text-amber-900 font-bold rounded-md bg-yellow-400">New Category</a>
+                        </div>
                     </div>
                 </div>
                 <div class="w-full bg-slate-100 rounded-md">

@@ -18,4 +18,14 @@ class Post extends Model
         'comment_status',
     ];
     protected $primaryKey = "id";
+
+    public function author()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function category()
+    {
+        return $this->hasMany(PostCategory::class);
+    }
 }

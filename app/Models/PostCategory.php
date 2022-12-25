@@ -12,4 +12,9 @@ class PostCategory extends Model
         "post_id",
         "category_id"
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
