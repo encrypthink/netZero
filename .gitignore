@@ -17,3 +17,10 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+.DS_Store
+/public/.DS_Store
+/public/js/.DS_Store
+/public/js/tinymce/.DS_Store
+/resources/.DS_Store
+/app/.DS_Store
+
