@@ -14,7 +14,7 @@
             <div class="mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-md sm:rounded-lg p-7">
                     <div class="mb-7">
-                        <h1 class="text-slate-900 font-extrabold text-4xl sm:text-xl lg:text-4xl dark:text-white">General Setting</h1>
+                        <h1 class="text-slate-900 font-extrabold text-4xl sm:text-xl lg:text-4xl">General Setting</h1>
                     </div>
     
                     <div class="col-span-6 sm:col-span-3 mb-4">
