@@ -8,6 +8,6 @@ class ThemeController extends Controller
 {
     public function index()
     {
-        # code...
+        return 'themes/default/index.php';
     }
 }
