@@ -30,6 +30,7 @@
                                 <td class="px-5 py-3">Title</td>
                                 <td class="px-5 py-3">Date Created</td>
                                 <td class="px-5 py-3">Author</td>
+                                <td class="px-5 py-3 text-center">Post Status</td>
                                 <td class="px-5 py-3 text-center">Comment Status</td>
                                 <td class="px-5 py-3">Action</td>
                             </tr>
@@ -48,6 +49,17 @@
                                     <td class="pl-5 py-2">{{ $item->title }}</td>
                                     <td class="pl-5 py-2">{{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}</td>
                                     <td class="pl-5 py-2">{{ $item->author->name }}</td>
+                                    <td class="pl-5 py-2 text-center">
+                                        @if ($item->post_status == "publish")
+                                        <span class="px-2 py-1 font-bold text-xs bg-blue-500 rounded-md text-white">
+                                            {{ $item->post_status }}
+                                        </span>
+                                        @else
+                                        <span class="px-2 py-1 font-bold text-xs bg-yellow-500 rounded-md text-white">
+                                            {{ $item->post_status }}
+                                        </span>
+                                        @endif
+                                    </td>
                                     <td class="pl-5 py-2 text-center">
                                         @if ($item->comment_status == "available")
                                         <span class="px-2 py-1 font-bold text-xs bg-red-500 rounded-md text-white">

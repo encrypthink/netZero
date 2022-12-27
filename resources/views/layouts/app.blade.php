@@ -20,8 +20,8 @@
                 <div class="hidden sm:flex md:w-64 bg-white drop-shadow-md">
                     @include('layouts.sidebar')
                 </div>
-                <div class="w-full">
-                    <main>
+                <div class="w-full h-full">
+                    <main class="h-full">
                         {{ $slot }}
                     </main>
                 </div>
