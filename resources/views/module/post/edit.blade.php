@@ -41,6 +41,13 @@
                                 <div class="col-span-6 sm:col-span-3 mb-4 pb-3 border-b-2 border-gray-200">
                                     <p class="font-bold">Publish</p>
                                 </div>
+                                <div class="mb-3">
+                                    <input class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" 
+                                            name="comment_status" value="available" type="checkbox" value="" id="comments" @checked($post->comment_status == "available")>
+                                    <label class="form-check-label inline-block text-gray-800" for="comments">
+                                      Allow Comments
+                                    </label>
+                                </div>
                                 <div class="grid grid-cols-2 gap-2">
                                     <button name="status" value="draft" class="py-2 px-3 hover:text-amber-900 font-bold rounded-md hover:bg-yellow-400 hover:shadow-md duration-300 bg-gray-500 text-white text-center">Save draft</button>
                                     <button name="status" value="publish" type="submit" class="py-2 px-3 hover:text-amber-900 font-bold rounded-md hover:bg-yellow-400 hover:shadow-md duration-300 bg-gray-500 text-white text-center">Publish</button>
@@ -96,7 +103,7 @@
                                         array_push($selectedCategory, $key->category_id);
                                     }
                                 @endphp
-                                <div class="h-48">
+                                <div class="h-48 overflow-y-auto">
                                     @if (count($category) < 1)
                                     <p class="text-center">No categories yet</p>
                                     @endif

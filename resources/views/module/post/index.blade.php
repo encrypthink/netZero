@@ -26,10 +26,11 @@
                     <table class="w-full whitespace-nowrap">
                         <thead class="font-bold border-b-2 border-yellow-400">
                             <tr>
+                                <td class="px-5 py-3">Image</td>
                                 <td class="px-5 py-3">Title</td>
-                                <td class="px-5 py-3">Author</td>
-                                <td class="px-5 py-3">Thumbnail</td>
                                 <td class="px-5 py-3">Date Created</td>
+                                <td class="px-5 py-3">Author</td>
+                                <td class="px-5 py-3 text-center">Comment Status</td>
                                 <td class="px-5 py-3">Action</td>
                             </tr>
                         </thead>
@@ -41,12 +42,23 @@
                             @endif
                             @foreach ($post as $item)
                                 <tr tabindex="0" class="focus:outline-none h-16 border-gray-100 hover:bg-yellow-100">
-                                    <td class="pl-5 py-2">{{ $item->title }}</td>
-                                    <td class="pl-5 py-2">{{ $item->author->name }}</td>
                                     <td class="pl-5 py-2">
                                         <img class="w-24" src="{{ asset('post_images/thumbnail/'.$item->main_image) }}" alt="">
                                     </td>
-                                    <td class="pl-5 py-2">{{ $item->created_at }}</td>
+                                    <td class="pl-5 py-2">{{ $item->title }}</td>
+                                    <td class="pl-5 py-2">{{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}</td>
+                                    <td class="pl-5 py-2">{{ $item->author->name }}</td>
+                                    <td class="pl-5 py-2 text-center">
+                                        @if ($item->comment_status == "available")
+                                        <span class="px-2 py-1 font-bold text-xs bg-red-500 rounded-md text-white">
+                                            {{ $item->comment_status }}
+                                        </span>
+                                        @else
+                                        <span class="px-2 py-1 font-bold text-xs bg-green-500 rounded-md text-white">
+                                            {{ $item->comment_status }}
+                                        </span>
+                                        @endif
+                                    </td>
                                     <td class="pl-5 py-2">
                                         <div class="flex">
                                             <div class="mx-2 fill-slate-500 hover:fill-black text-slate-500 hover:text-black">

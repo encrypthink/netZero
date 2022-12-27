@@ -12,6 +12,7 @@
         automatic_uploads: true,
         images_upload_url : '/post/upload/image',
         file_picker_types: 'image',
+        convert_urls: false,
         image_class_list: [
             {title: 'img-responsive', value: 'img-responsive'},
         ],

@@ -15,7 +15,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $post = Post::paginate(30);
+        $post = Post::orderByDesc('id')->paginate(30);
         return view('module.post.index', ['post' => $post]);
     }
 
@@ -52,7 +52,8 @@ class PostController extends Controller
             'body' => $request->body,
             'slug' => Str::of($request->title)->slug('-'),
             'post_status' => $request->status,
-            'author_id' => Auth::user()->id
+            'author_id' => Auth::user()->id,
+            'comment_status' => $request->comment_status ? $request->comment_status : 'not available'
         ]);
 
         if ($request->category !== null) {
