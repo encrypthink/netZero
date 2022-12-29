@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ThemeController;
 
 Route::middleware('auth')->group(function () {
@@ -18,6 +19,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/category', CategoryController::class);
     Route::resource('/theme', ThemeController::class);
     Route::resource('/setting', SettingController::class);
+    Route::resource('/pages', PagesController::class);
 
     Route::post('/post/upload/image', [PostController::class, 'imageUpload']);
 });

@@ -62,6 +62,15 @@
         </div>
     </li>
     <li>
+        <a href="{{ route('pages.index') }}"
+            class="relative flex flex-row items-center h-11 focus:outline-none hover:mx-4 hover:rounded-md hover:bg-yellow-400 hover:fill-amber-900 hover:text-amber-900 fill-gray-600 hover:font-semibold text-gray-600 border-l-4 border-transparent pr-6">
+            <span class="inline-flex justify-center items-center ml-4">
+                <svg class="w-6 h-6 fill-slate-700" viewBox="0 0 21.00 21.00" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke="#555" stroke-linecap="round" stroke-linejoin="round" transform="translate(4 3)"><path d="m11.5.5h-7c-1.1045695 0-2 .8954305-2 2v9c0 1.1045695.8954305 2 2 2h7c1.1045695 0 2-.8954305 2-2v-9c0-1.1045695-.8954305-2-2-2z"/><path d="m2.5 2.5c-1.1045695 0-2 .8954305-2 2v8c0 1.6568542 1.34314575 3 3 3h6c1.1045695 0 2-.8954305 2-2"/></g></svg>
+            </span>
+            <span class="ml-2 text-sm tracking-wide truncate">Pages</span>
+        </a>
+    </li>
+    <li>
         <a href="{{ route('theme.index') }}"
             class="relative flex flex-row items-center h-11 focus:outline-none hover:mx-4 hover:rounded-md hover:bg-yellow-400 hover:fill-amber-900 hover:text-amber-900 fill-gray-600 hover:font-semibold text-gray-600 border-l-4 border-transparent pr-6">
             <span class="inline-flex justify-center items-center ml-4">
