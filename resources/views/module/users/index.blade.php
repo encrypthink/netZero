@@ -28,7 +28,7 @@
                             <tr>
                                 <td class="px-5 py-3">Name</td>
                                 <td class="px-5 py-3">Email</td>
-                                <td class="px-5 py-3">Aksi</td>
+                                <td class="px-5 py-3">Actions</td>
                             </tr>
                         </thead>
                         <tbody>
