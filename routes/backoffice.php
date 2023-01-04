@@ -8,6 +8,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\UsersController;
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -20,6 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/theme', ThemeController::class);
     Route::resource('/setting', SettingController::class);
     Route::resource('/pages', PagesController::class);
+    Route::resource('/users', UsersController::class);
 
     Route::post('/post/upload/image', [PostController::class, 'imageUpload']);
 });
